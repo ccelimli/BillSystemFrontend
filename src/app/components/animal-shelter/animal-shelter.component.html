@@ -1,1 +1,25 @@
-<p>animal-shelter works!</p>
+
+<div *ngIf="dataLoaded==false" class="spinner-grow text-info" role="status">
+  <span class="sr-only">Loading...</span>
+</div>
+<div class="row">
+  <div class="col-md-2" >
+    <app-category></app-category>
+  </div>
+  <div class="row col-md-10">
+      <div *ngFor="let animalShelter of animalShelters" class="card text-white bg-info mb-3" style="max-width: 18rem; margin: 10px;">
+        <div class="card-header"> <b>{{animalShelter.animalShelterName}}</b></div>
+          <div class="card-body">
+            <p class="card-text">{{animalShelter.platformName}}</p>
+            <p class="card-text">{{animalShelter.cityName}}</p>
+            <p class="card-text">{{animalShelter.bankName}}</p>
+            <p class="card-text">{{animalShelter.iban}}</p>
+          </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+<app-footer></app-footer>

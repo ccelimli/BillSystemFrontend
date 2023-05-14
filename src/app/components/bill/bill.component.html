@@ -1,1 +1,65 @@
-<p>bill works!</p>
+<!DOCTYPE html>
+<html>
+  <head>
+
+  </head>
+  <body>
+    <div *ngIf="dataLoaded==false" class="spinner-grow text-info" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+    <div class="row">
+      <div class="col-md-2">
+        <app-category></app-category>
+      </div>
+      <div class="row col-md-8">
+        <!-- <div *ngFor="let bill of bills" class="card text-white bg-info mb-3" style="max-width: 25rem; margin: 10px;">
+            <div class="card-header"> <b>{{bill.categoryName}}</b></div>
+              <div class="card-body">
+                <p *ngIf="bill.status!=false" class="card-text">       
+                  <span class="bi bi-check"></span>            </p>
+                <p class="card-text">Şehir: {{bill.cityName}}</p>
+                <p class="card-text">Şirket: {{bill.institutionName}}</p>
+                <p class="card-text">Sözleşme No: {{bill.contractNo}}</p>
+                <p class="card-text">Fatura Tarihi: {{bill.invoiceDate}}</p>
+                <p class="card-text">Son Ödeme Tarihi: {{bill.dateOfLastPayment}}</p>
+                <p class="card-text">Tutar: {{bill.invoiceValue}}</p>
+                
+              </div>
+              <a href="{{bill.website}}" class="btn btn-default btn-sm" style="margin: 5px;">Ödeme Yap</a> -->
+        <div *ngFor="let bill of bills" class="card" style="width: 18rem; margin: 10px; ">
+          <div class="card-header"> <b>{{bill.categoryName}}</b></div>
+          <div class="card-body">
+            <p *ngIf="bill.status!=false" class="card-text">
+              <span class="bi bi-check"></span>
+            </p>
+            <p class="card-text">Şehir: {{bill.cityName}}</p>
+            <p class="card-text">Şirket: {{bill.institutionName}}</p>
+            <p class="card-text">Sözleşme No: {{bill.contractNo}}</p>
+            <p class="card-text">Fatura Tarihi: {{bill.invoiceDate}}</p>
+            <p id="tarih"></p>
+            <p id="tarih" class="card-text">Son Ödeme Tarihi: {{bill.dateOfLastPayment}}</p>
+            <p class="card-text">Tutar: {{bill.invoiceValue}} TL</p>
+            <div style="text-align: center">
+              <a href="{{bill.website}}" class="btn btn-primary">Ödeme Yap</a>
+            </div>
+    
+          </div>
+        </div>
+      </div>
+    
+    
+    </div>
+    <script>
+      var tarih_str = "2023-05-06T23:55:35.02";
+      var tarih = new Date(tarih_str);
+
+      var gun = ("0" + tarih.getDate()).slice(-2);
+      var ay = ("0" + (tarih.getMonth() + 1)).slice(-2);
+      var yil = tarih.getFullYear();
+      var tarih_str = gun + "/" + ay + "/" + yil;
+
+      document.getElementById("tarih").innerHTML = tarih_str;
+    </script>
+    <app-footer></app-footer>
+  </body>
+</html>
